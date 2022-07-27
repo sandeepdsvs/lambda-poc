@@ -16,6 +16,8 @@ type event struct {
 
 func newClient() lambda.Lambda {
 	var s *session.Session
+
+	//Used NewSharedCredentials, which will take the required AWS keyID and secret key from ~/.aws/credentials file
 	s = session.Must(session.NewSession(&aws.Config{
 		Region:      aws.String("us-west-2"),
 		Credentials: credentials.NewSharedCredentials("", ""),
